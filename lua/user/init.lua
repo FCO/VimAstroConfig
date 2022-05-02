@@ -48,6 +48,8 @@ local config = {
     -- Add plugins, the packer syntax without the "use"
     init = {
       { "tyru/open-browser.vim" },
+      { "tyru/open-browser-github.vim" },
+      { "segeljakt/vim-silicon" }
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -112,6 +114,33 @@ local config = {
     virtual_text = true,
     underline = true,
   },
+
+
+  -- rakunavigator
+  -- https://github.com/bscan/RakuNavigator
+  ["rakunavigator"] = function()
+    local status_ok, rakunavigator = pcall(require, "rakunavigator")
+    if not status_ok then
+      return
+    end
+
+    rakunavigator.setup {
+      cmd = {'node', '/Users/foliveira/personal_data/RakuNavigator/server/out/server.js', '--stdio'}
+    }
+  end,
+
+  -- perlnavigator
+  -- https://github.com/bscan/PerlNavigator
+  ["perlnavigator"] = function()
+    local status_ok, perlnavigator = pcall(require, "perlnavigator")
+    if not status_ok then
+      return
+    end
+
+    perlnavigator.setup {
+      cmd = {'node', '/Users/foliveira/personal_data/PerlNavigator/server/out/server.js', '--stdio'}
+    }
+  end,
 
   -- null-ls configuration
   ["null-ls"] = function()
